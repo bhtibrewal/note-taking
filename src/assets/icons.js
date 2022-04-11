@@ -1,0 +1,1 @@
+export { BiNote } from "react-icons/bi";
