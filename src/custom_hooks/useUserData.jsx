@@ -8,13 +8,12 @@ export const useUserData = () => {
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(initialisUserLoggedIn);
   const localUserData = JSON.parse(localStorage.getItem("user"));
   const initialUserData = localUserData
-    ? { ...localUserData, addresses: [] }
+    ? { ...localUserData }
     : {
         firstName: "",
         lastName: "",
         email: "",
         createdAt: "",
-        addresses: [],
       };
 
   const userDataReducer = (state, { type, payload }) => {

@@ -10,16 +10,15 @@ makeServer();
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router />
-
-    <ThemeProvider>
-      <ToastProvider>
-        <AuthProvider>
-          <App />
-        </AuthProvider>
-      </ToastProvider>
-    </ThemeProvider>
-    <Router />
+    <Router >
+      <ThemeProvider>
+        <ToastProvider>
+          <AuthProvider>
+            <App />
+          </AuthProvider>
+        </ToastProvider>
+      </ThemeProvider>
+    </Router >
   </React.StrictMode>,
   document.getElementById("root")
 );
