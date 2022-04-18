@@ -34,22 +34,24 @@ export const SignIn = () => {
     });
     return () => {};
   }, []);
+  const submitHandler=(e) => {
+    
+    e.preventDefault();
+    signIn({
+      setSigninError,
+      data: inputValues,
+      userDataDispatch,
+      setIsUserLoggedIn,
+      showToast,
+      keepMeLoggedIn,
+    });
+  }
 
   return (
     <main className="main center">
       <form
         className="flex-col signup-sec"
-        onSubmit={(e) => {
-          e.preventDefault();
-          signIn({
-            setSigninError,
-            data: inputValues,
-            userDataDispatch,
-            setIsUserLoggedIn,
-            showToast,
-            keepMeLoggedIn,
-          });
-        }}
+        onSubmit={submitHandler}
       >
         <p className="body-l">Login to my user account.</p>
 

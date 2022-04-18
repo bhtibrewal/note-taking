@@ -31,23 +31,25 @@ export const SignUp = () => {
   /* if agree to terms and can submit then set disabled false */
   const isDisabled = () => !(agreeToTerms && canSubmit());
   const disabled = isDisabled();
+  const submitHandler=(e) => {
+   
+    if (!disabled) {
+      e.preventDefault();
+      signUp({
+        data: inputValues,
+        userDataDispatch,
+        setIsUserLoggedIn,
+        showToast,
+        navigate,
+      });
+    }
+  }
 
   return (
     <main className="main center">
       <form
         className="flex-col signup-sec"
-        onSubmit={(e) => {
-          if (!disabled) {
-            e.preventDefault();
-            signUp({
-              data: inputValues,
-              userDataDispatch,
-              setIsUserLoggedIn,
-              showToast,
-              navigate,
-            });
-          }
-        }}
+        onSubmit={submitHandler}
       >
         <p className="body-l">Create my account on Artsy Shop!</p>
 
